@@ -49,7 +49,7 @@ class MediaSplit:
         # Output the consolidated media queries
         for (query, contents) in self.query_contents.iteritems():
             filename = "%s.css" % self._make_filename(query)
-            file_contents = "".join([content for (content, _) in contents]).strip()
+            file_contents = query + " {" + "".join([content for (content, _) in contents]).strip() + "}"
             self._put_file_contents(filename, file_contents)
 
         # Output the remaining styles
