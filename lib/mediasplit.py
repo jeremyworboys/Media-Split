@@ -4,7 +4,7 @@
 Media Split finds unique break-points in a CSS file and combines the contents of
 each, outputting each break-point to a separate CSS file.
 
-Usage: python mediasplit.py style.css first.css
+Usage: python mediasplit.py style.css all.css
 """
 import sys
 import re
@@ -27,7 +27,7 @@ class MediaSplit:
     def __init__(self):
         self._reset()
 
-    def run(self, remaining_file="first.css"):
+    def run(self, remaining_file="all.css"):
         # Make sure it has media queries
         if not RE_HAS_MEDIA.search(self.contents):
             return
@@ -104,12 +104,12 @@ def help():
 Media Split finds unique break-points in a CSS file and combines the contents of
 each, outputting each break-point to a separate CSS file.
 
-Usage: %s style.css first.css
+Usage: %s style.css all.css
 """ % sys.argv[0]
 
 
 def main():
-    remaining_file = "first.css"
+    remaining_file = "all.css"
 
     if len(sys.argv) > 2:
         remaining_file = sys.argv[2]
