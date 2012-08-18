@@ -12,7 +12,7 @@ from collections import OrderedDict
 
 
 RE_HAS_MEDIA = re.compile("@media")
-RE_FIND_MEDIA = re.compile("(@media.+?)(\{)", re.DOTALL | re.MULTILINE)
+RE_FIND_MEDIA = re.compile("(@media[^\{]+?(?:min|max)-width.+?)(\{)", re.DOTALL | re.MULTILINE)
 RE_MEDIA_NAME = re.compile("@media.+?((?:min|max)-width:\s+[\d\w]+)", re.DOTALL | re.MULTILINE)
 RE_FILENAME = re.compile("[^\d\w]")
 RE_MULTI_DASH = re.compile("-+")
